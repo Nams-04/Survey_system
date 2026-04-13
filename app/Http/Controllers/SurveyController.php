@@ -108,4 +108,14 @@ public function dashboard()
     return view('dashboard', compact('surveys'));
 }
 
+public function toggle($id)
+{
+    $survey = Survey::findOrFail($id);
+
+    $survey->is_active = !$survey->is_active;
+    $survey->save();
+
+    return redirect('/admin');
+}
+
 }

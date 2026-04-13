@@ -10,6 +10,9 @@ Route::get('/', function () {
     return view('welcome', compact('surveys'));
 });
 
+Route::get('/admin/toggle/{id}', [SurveyController::class, 'toggle'])
+    ->middleware('auth');
+
 Route::get('/survey/{slug}', [SurveyController::class, 'show']);
 
 Route::post('/submit', [SurveyController::class, 'submit']);

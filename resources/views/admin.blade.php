@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<a href="/">⬅ Back to Dashboard</a>
     <title>Admin Dashboard</title>
 </head>
 <body>

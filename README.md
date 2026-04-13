@@ -1,59 +1,122 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📊 Anonymous Survey System (Laravel)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 📌 Project Overview
 
-## About Laravel
+This project is a web-based **Anonymous Survey System** built using Laravel. It allows administrators to upload surveys using CSV files and generate dynamic questionnaires with unique URLs. Users can access and submit responses anonymously without logging in.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🎯 Objective
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* Generate surveys from CSV files
+* Provide unique URLs for each survey
+* Collect anonymous user responses
+* Allow admins to manage and analyze results
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 👥 Actors
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 👨‍💼 Admin
 
-## Laravel Sponsors
+* Login to secured dashboard
+* Upload CSV to create surveys
+* Enable/Disable surveys
+* View and download results
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 👤 User
 
-### Premium Partners
+* Access surveys via URL
+* Answer questions
+* Submit responses (no login required)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 🧾 CSV Format
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Each row in the CSV file:
 
-## Code of Conduct
+```id="t9k23g"
+Question, CorrectAnswer, WrongOption1, WrongOption2, ...
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 🛠️ Technologies Used
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* Laravel (PHP Framework)
+* MySQL (XAMPP)
+* Blade Templates
+* Laravel Breeze (Authentication)
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## ⚙️ Implementation Summary
+
+* CSV files are read using `fgetcsv()`
+* Questions and options are parsed and stored in database
+* Surveys are assigned unique URLs
+* Questions are dynamically displayed using Blade
+* User responses are stored in JSON format
+* Admin authentication is handled using Laravel Breeze
+
+---
+
+## 🗄️ Database Tables
+
+* **surveys** → stores survey details
+* **questions** → stores questions and options
+* **responses** → stores user answers
+
+---
+
+## ⚙️ Installation
+
+```bash id="4r5zci"
+git clone https://github.com/YOUR-USERNAME/YOUR-REPO.git
+cd survey-system
+composer install
+npm install
+npm run dev
+cp .env.example .env
+php artisan key:generate
+```
+
+Update `.env` with database details, then:
+
+```bash id="9abjzq"
+php artisan migrate
+php artisan serve
+```
+
+---
+
+## 🔄 Workflow
+
+1. Admin uploads CSV
+2. System stores questions in database
+3. Unique survey link is generated
+4. Users access and submit responses
+5. Admin views/downloads results
+
+---
+
+## 🔮 Future Improvements
+
+* Add scoring system
+* Improve UI design
+* Add analytics dashboard
+
+---
+
+## 👩‍💻 Author
+
+**Namratha Reddy**
+
+---
+
+## ✅ Conclusion
+
+This project demonstrates full-stack development using Laravel, including file handling, database management, authentication, and dynamic content generation.
+
+---

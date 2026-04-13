@@ -6,7 +6,7 @@ use App\Http\Controllers\SurveyController;
 use App\Models\Survey;
 
 Route::get('/', function () {
-    $surveys = Survey::where('is_active', true)->get();
+    $surveys = Survey::where('is_active', true)->get(); 
     return view('welcome', compact('surveys'));
 });
 

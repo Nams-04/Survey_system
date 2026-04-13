@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<a href="/dashboard">⬅ Back to Dashboard</a>
+<a href="/">⬅ Back to Dashboard</a>
 <br><br>
     <title>{{ $survey->name }}</title>
 </head>

@@ -3,10 +3,17 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SurveyController;
+use App\Models\Survey;
 
 Route::get('/', function () {
-    return view('welcome');
+    $surveys = Survey::where('is_active', true)->get();
+    return view('welcome', compact('surveys'));
 });
+
+Route::get('/survey/{slug}', [SurveyController::class, 'show']);
+
+Route::post('/submit', [SurveyController::class, 'submit']);
+
 Route::get('/dashboard', [SurveyController::class, 'dashboard'])
     ->middleware(['auth'])
     ->name('dashboard');

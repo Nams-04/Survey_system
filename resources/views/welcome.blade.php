@@ -273,5 +273,33 @@
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
         @endif
+
+        <div style="max-width:900px; margin:40px auto;">
+
+    <h2 style="font-size:24px; font-weight:bold; margin-bottom:20px;">
+        Available Surveys
+    </h2>
+
+    @if(isset($surveys) && count($surveys) > 0)
+
+        @foreach($surveys as $survey)
+            <div style="border:1px solid #ddd; padding:15px; margin-bottom:15px; border-radius:8px;">
+
+                <h3>{{ $survey->name }}</h3>
+
+                <a href="/survey/{{ $survey->slug }}">
+                    <button style="margin-top:10px; padding:8px 15px; background:#4CAF50; color:white; border:none; border-radius:5px;">
+                        Take Survey
+                    </button>
+                </a>
+
+            </div>
+        @endforeach
+
+    @else
+        <p>No surveys available right now.</p>
+    @endif
+
+</div>
     </body>
 </html>
